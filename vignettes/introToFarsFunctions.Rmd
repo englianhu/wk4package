@@ -2,7 +2,7 @@
 title: "An introduction to the wk4package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{introToFarsFunctions}
+  %\VignetteIndexEntry{An introduction to the wk4package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -17,3 +17,10 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(wk4package)
 ```
+
+The FARS functions are a set a functions surrounding accident data recovered from the Fatality Analysis Reporting System from the US' NHTSA. They generally load, summarize, and visualize accident data in the format of the FARS raw datasets with the `accident_YYYY.csv.bz2` filename format. 
+
+```{r}
+getwd()
+```
+
