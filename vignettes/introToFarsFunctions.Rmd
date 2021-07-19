@@ -1,0 +1,19 @@
+---
+title: "An introduction to the wk4package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introToFarsFunctions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(wk4package)
+```
