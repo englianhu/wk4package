@@ -2,3 +2,4 @@
 ^\.github$
 ^appveyor\.yml$
 ^LICENSE\.md$
+^data-raw$

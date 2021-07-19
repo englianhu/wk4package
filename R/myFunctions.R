@@ -1,5 +1,3 @@
-
-
 #' @title Add two!
 #' @details Add two to your number!
 #' @param x Number to add with
