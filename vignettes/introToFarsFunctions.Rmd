@@ -22,5 +22,12 @@ The FARS functions are a set a functions surrounding accident data recovered fro
 
 ```{r}
 getwd()
+#Switching to the data-raw file to run examples!
+#Note that links have been placed in the vignettes directory
+#to use "accident_YYYY.csv.bz2" files in this vignette!
+# Always have these files in your current working directory
+# when `interactive()`!
+#setwd(system.file("data-raw", package = "wk4package"))
+fars_summarize_years(2013)
 ```
 
