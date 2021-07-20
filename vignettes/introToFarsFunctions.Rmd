@@ -18,16 +18,52 @@ knitr::opts_chunk$set(
 library(wk4package)
 ```
 
-The FARS functions are a set a functions surrounding accident data recovered from the Fatality Analysis Reporting System from the US' NHTSA. They generally load, summarize, and visualize accident data in the format of the FARS raw datasets with the `accident_YYYY.csv.bz2` filename format. 
+# Vignette information and general usage information.
+
+The FARS functions are a set a functions surrounding accident data recovered from the Fatality Analysis Reporting System from the US' NHTSA. They generally load, summarize, and visualize accident data in the format of the FARS raw datasets with the `accident_YYYY.csv.bz2` filename format. Since every function has been hard-wired to rely on the `accident_YYYY.csv.bz2` file to be in the user's working directory, this vignette uses relative links sitting in the `./vignettes` folder to use data on these functions. 
 
 ```{r}
 getwd()
-#Switching to the data-raw file to run examples!
-#Note that links have been placed in the vignettes directory
-#to use "accident_YYYY.csv.bz2" files in this vignette!
-# Always have these files in your current working directory
-# when `interactive()`!
-#setwd(system.file("data-raw", package = "wk4package"))
-fars_summarize_years(2013)
+dir()
+```
+
+To start off with, the `fars_read` function takes the filename provided and reads it in as a tibble dataframe. This is read_csv from dplyr but with error checking. However, the other functions themselves first call a non-exported function called `wk4package:::make_filename(year)` that takes in a number and spits out the `accident` filename that is compatible with the FARS functions family.
+
+# The FARS funcitons family
+
+## Reading in a set of years
+
+The first set of reading and summarize functions take in a list or vector of years to be queried. 
+
+
+```{r }
+# Note that links have been placed in the vignettes directory
+# to use "accident_YYYY.csv.bz2" files in this vignette!. Always have these 
+# files in your current working directory  when `interactive()`.
+fars_read_years(2013)[[1]] %>% head()
+# The function can take the number as either a numeric or character object.
+fars_read_years(list(2014,"2015")) -> tmp
+head(tmp[[1]])
+head(tmp[[2]])
+```
+
+## Summarizing monthly accidents.
+
+The tables outputted are a list of cases of accidents from the FARS system with the month and year. This can be further summarized with the next function that outputs number of monthly accidents for the years queried.
+
+```{r }
+fars_summarize_years(c(2013, 2014))
+```
+
+## Mapping accidents over a state for a given year
+
+The final function `fars_map_state` then allows one to map accidents for a given year. Note that if a vector of years is entered, the function is not guaranteed to run with at least a warning for using a vector of length greater than one. 
+
+The argument state.num relates to the United State's internal FIPS code regulations. This is not related to the well known USPS ZIP code, but the rule of thumb is that it is the counting down the list of states in alphabetical order (with exceptions because of the US Territories). So for example: Alabama is 01, Oregon is 41, and South Carolina is 45, etc. A list of FIPS state codes can be found [here](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code). 
+
+```{r, fig.dim(8,1)}
+# Map Oregonian crashes
+# Oregon
+fars_map_state(state.num = 41, year = 2013)
 ```
 

@@ -14,6 +14,7 @@
 #'  #getwd()
 #'  \dontrun{fars_read("accident_2013.csv.bz2") }
 #' @importFrom readr read_csv
+#' @importFrom dplyr tbl_df
 #' @param filename Relative filepath to the current working directory. This must be an existing comma separated values file (*.csv) or it will throw an error.
 #' @return A tibble from the inputted *.csv file.
 #' @family FARS functions
@@ -43,6 +44,7 @@ fars_read <- function(filename) {
 #'	\dontrun{make_filename(2009)}
 #'  #returns "accident_2012.csv.bz2"
 #'	\dontrun{make_filename("2012")}
+#' @export
 make_filename <- function(year) {
         year <- as.integer(year)
         sprintf("accident_%d.csv.bz2", year)
@@ -67,7 +69,7 @@ make_filename <- function(year) {
 #'  \dontrun{fars_read_years(list("2013",2014))}
 #' 
 #' @importFrom purrr `%>%`
-#' @import dplyr
+#' @importFrom dplyr select mutate
 #' @export
 fars_read_years <- function(years) {
         lapply(years, function(year) {
@@ -96,8 +98,9 @@ fars_read_years <- function(years) {
 #'	\dontrun{fars_summarize_years(c(2013, 2014))}
 #' # Character objects work too
 #'	\dontrun{fars_summarize_years(c("2013", "2014"))}
-#' @import dplyr
-#' @import tidyr
+#' @importFrom dplyr bind_rows group_by summarize 
+#' @importFrom tidyr spread
+#' @importFrom purrr `%>%`
 #' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
@@ -118,14 +121,15 @@ fars_summarize_years <- function(years) {
 #'  # Call the function to show Oregonian accidents for 2013 on a map.
 #'  # This will throw an error if "accident_2013.csv.bz2" is not in the current working directory.
 #'  \dontrun{fars_map_state(41, 2013)}
-#'  # Running a FIPS code for a territory like American Samoa (60) or a year where the Republic didn't exist (e.g. 900AD) will throw an error.
+#'  # Running a FIPS code for a territory like American Samoa (60) or a year 
+#'  where the Republic didn't exist (e.g. 900AD) will throw an error.
 #'  \dontrun{fars_map_state(60, 900)}
 #' @return NULL
 #' @references \href{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}{Wikipedia Article on FIPS codes} for a key between state.num and the region/state you want to input. 
 #' \url{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}.
 #' @importFrom purrr `%>%`
-#' @import dplyr
-#' @import maps
+#' @importFrom dplyr filter
+#' @importFrom maps map
 #' @family FARS functions
 #' @export
 fars_map_state <- function(state.num, year) {

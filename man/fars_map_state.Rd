@@ -18,14 +18,6 @@ Display crashes for a state according to their MIPS code for a specified year.
 Note that the year specified should be available on the current working directory, e.g. for year = "2013" the file "accidents_2013.csv.bz2" should appear when calling \code{dir()} in your instance.
 Do note that the following packages are needed: dplyr, tidyr, readr, magrittr, purrr, and maps.
 }
-\examples{
- # setwd(system.file("data-raw", package = "wk4package")) to try this out
- # Call the function to show Oregonian accidents for 2013 on a map.
- # This will throw an error if "accident_2013.csv.bz2" is not in the current working directory.
- \dontrun{fars_map_state(41, 2013)}
- # Running a FIPS code for a territory like American Samoa (60) or a year where the Republic didn't exist (e.g. 900AD) will throw an error.
- \dontrun{fars_map_state(60, 900)}
-}
 \references{
 \href{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}{Wikipedia Article on FIPS codes} for a key between state.num and the region/state you want to input.
 \url{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}.
