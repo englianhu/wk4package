@@ -15,7 +15,7 @@ utils::globalVariables(c("year", "STATE", "MONTH", "n"))
 #'  #getwd()
 #'  \dontrun{fars_read("accident_2013.csv.bz2") }
 #' @importFrom readr read_csv
-#' @importFrom dplyr tbl_df
+#' @importFrom dplyr tbl_df as_tibble
 #' @param filename Relative filepath to the current working directory. This must be an existing comma separated values file (*.csv) or it will throw an error.
 #' @return A tibble from the inputted *.csv file.
 #' @family FARS functions
@@ -26,7 +26,7 @@ fars_read <- function(filename) {
         data <- suppressMessages({
                 readr::read_csv(filename, progress = FALSE)
         })
-        dplyr::tbl_df(data)
+        dplyr::as_tibble(data)
 }
 
 
