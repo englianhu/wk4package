@@ -7,3 +7,7 @@ AppVeyor: [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/
 
 Travis: [![Travis Build Status](https://travis-ci.com/SamHall14/wk4package.svg?branch=main)](https://travis-ci.com/SamHall14/wk4package)
 <!-- badges: end -->
+
+Remember to call `browseVignettes` to find the vignette provided in this package.
+
+R files, man pages, vignettes, tests are included. NAMESPACE has been updated. Badges are set up and travis passes.
