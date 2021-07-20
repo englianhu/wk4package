@@ -1,3 +1,4 @@
+utils::globalVariables(c("year", "STATE", "MONTH", "n"))
 #' @title Read a FARS query into a tibble
 #'
 #' @description fars_read() takes in a *.csv file from the NHTSA's FARS #' archives  and returns a tibble.
