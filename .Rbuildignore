@@ -3,3 +3,5 @@
 ^appveyor\.yml$
 ^LICENSE\.md$
 ^data-raw$
+^.*\.Rproj$
+^\.Rproj\.user$
