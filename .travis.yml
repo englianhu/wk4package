@@ -9,3 +9,9 @@ branches:
   only:
     - master
     - stable
+git:
+  sparse_checkout: skip-worktree-map-file
+  autocrlf: input
+  symlinks: true  
+  
+
