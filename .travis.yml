@@ -10,8 +10,13 @@ branches:
     - master
     - stable
 git:
-  sparse_checkout: skip-worktree-map-file
-  autocrlf: input
-  symlinks: true  
-  
+  - sparse_checkout: skip-worktree-map-file
+  - autocrlf: input
+  - symlinks: true  
+  - depth: false  
 
+before_script:
+  - composer install -no-interaction
+  
+script:
+  - /usr/lib/R
