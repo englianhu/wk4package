@@ -3,8 +3,6 @@
 <!-- badges: start -->
 R CMD check: [![R-CMD-check](https://github.com/englianhu/wk4package/workflows/R-CMD-check/badge.svg)](https://github.com/englianhu/wk4package/actions)
 
-AppVeyor: [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/englianhu/wk4package?branch=main&svg=true)](https://ci.appveyor.com/project/englianhu/wk4package)
-
 Travis: [![Travis Build Status](https://travis-ci.com/englianhu/wk4package.svg?branch=main)](https://travis-ci.com/englianhu/wk4package)
 <!-- badges: end -->
 
