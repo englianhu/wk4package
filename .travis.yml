@@ -1,6 +1,7 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 language: R
 cache: packages
+os: linux-latest
 env:
   - DB=postgres
   - SH=bash
@@ -9,6 +10,7 @@ branches:
   only:
     - master
     - stable
+    - main
 git:
   - sparse_checkout: skip-worktree-map-file
   - autocrlf: input
