@@ -8,4 +8,4 @@ Travis: [![Travis Build Status](https://travis-ci.com/englianhu/wk4package.svg?b
 
 Remember to call `browseVignettes` to find the vignette provided in this package.
 
-R files, man pages, vignettes, tests are included. NAMESPACE has been updated. Badges are set up and travis passes.
+R files, man pages, vignettes, tests are included. NAMESPACE has been updated. Badges are set up and `travis` passes.

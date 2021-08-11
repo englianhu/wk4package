@@ -126,6 +126,7 @@ fars_summarize_years <- function(years) {
 #'  where the Republic didn't exist (e.g. 900AD) will throw an error.
 #'  \dontrun{fars_map_state(60, 900)}
 #' @return NULL
+#' 
 #' @references \href{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}{Wikipedia Article on FIPS codes} for a key between state.num and the region/state you want to input. 
 #' \url{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}.
 #' @importFrom purrr `%>%`
