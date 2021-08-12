@@ -8,4 +8,4 @@ Travis: [![Travis Build Status](https://travis-ci.com/englianhu/wk4package.svg?b
 
 Use `browseVignettes` read the `vignette` provided in this package.
 
-R files, man pages, vignettes, tests, NAMESPACE and `travis` are included.
+`R` folder, `man` folder, `vignettes` folder, `tests` folder, `NAMESPACE` and `travis` are included.
