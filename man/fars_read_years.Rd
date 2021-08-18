@@ -20,14 +20,20 @@ Provide a list/vector of years you would like to query in the form of XXXX in nu
 of each years accident info containing the month and year the accident occured.
 }
 \examples{
- #read in one year, will return a tibble containing the month as an integer
+#read in one year, will return a tibble containing the month as an integer
 #setwd(system.file("data-raw", package = "wk4package"))
- \dontrun{fars_read_years(2015)}
- # read in multiple years, will return a list of tibbles 
- # containing the month as a double and year as a <dbl>.
- \dontrun{fars_read_years(c(2013,2014))}
- # You can mix and match object types
- \dontrun{fars_read_years(list("2013",2014))}
+  \dontrun{
+     fars_read_years(2015)
+  }
+# read in multiple years, will return a list of tibbles
+# containing the month as a double and year as a <dbl>.
+  \dontrun{
+     fars_read_years(c(2013,2014))
+  }
+# You can mix and match object types
+  \dontrun{
+     fars_read_years(list("2013",2014))
+  }
 
 }
 \seealso{

@@ -28,3 +28,4 @@ Other FARS functions:
 \code{\link{fars_read}()}
 }
 \concept{FARS functions}
+\keyword{internal}

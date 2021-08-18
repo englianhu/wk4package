@@ -22,6 +22,6 @@ Input a numeric or character object representing an integer which will then be c
 #setwd(system.file("data-raw", package = "wk4package"))
 #returns "accident_2009.csv.bz2"
 \dontrun{make_filename(2009)}
- #returns "accident_2012.csv.bz2"
+#returns "accident_2012.csv.bz2"
 \dontrun{make_filename("2012")}
 }

@@ -20,11 +20,17 @@ This function takes in a *.csv file and using the readr package will load the fi
 }
 \examples{
 # this will stop
-\dontrun{fars_read("this_file_does_not_exist.csv")} 
 #returns data as tbl_df
- #setwd(system.file("data-raw", package = "wk4package"))
- #getwd()
- \dontrun{fars_read("accident_2013.csv.bz2") }
+  \dontrun{
+     fars_read("this_file_does_not_exist.csv")
+  }
+
+#setwd(system.file("data-raw", package = "wk4package"))
+#getwd()
+  \dontrun{
+     fars_read("accident_2013.csv.bz2")
+  }
+
 }
 \seealso{
 \url{https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/} for other .csv files from FARS (Fatality Analysis Reporting System)
@@ -35,3 +41,4 @@ Other FARS functions:
 \code{\link{fars_read_years}()}
 }
 \concept{FARS functions}
+\keyword{internal}
