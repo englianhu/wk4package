@@ -1,4 +1,5 @@
 utils::globalVariables(c("year", "STATE", "MONTH", "n"))
+methods::setOldClass(c("tbl_ts", "tbl_df", "tbl", "data.frame"))
 #' @title Read a FARS query into a tibble
 #'
 #' @description fars_read() takes in a *.csv file from the NHTSA's FARS #' archives  and returns a tibble.
@@ -8,12 +9,10 @@ utils::globalVariables(c("year", "STATE", "MONTH", "n"))
 #' @seealso \url{https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/} for other .csv files from FARS (Fatality Analysis Reporting System)
 #' to process. Explore the NHTSA's website for more information on the FARS program.
 #' @keywords internal
-#' @importFrom methods setClass setAs
-#' methods::setClass("new")
-#' methods::setAs("*.csv", function(filename) fars_read(filename))
+#' @importFrom methods setClass setAs setOldClass
 #'
 #' @examples
-#' # this will stop
+#' #this will stop
 #' #returns data as tbl_df
 #'   \dontrun{
 #'      fars_read("this_file_does_not_exist.csv")
@@ -141,19 +140,17 @@ fars_summarize_years <- function(years) {
 #' @param year "character" or "integer" representing the year in XXXX format (e.g. 2013).
 #'
 #' @keywords internal
-#' @importFrom methods setClass setAs
-#' methods::setClass("new")
-#' methods::setAs("int", "int", function(state.num, year) fars_map_state(state.num, year))
+#' @importFrom methods setClass setAs setOldClass
 #'
 #' @examples
-#' # setwd(system.file("data-raw", package = "wk4package")) to try this out
-#' # Call the function to show Oregonian accidents for 2013 on a map.
-#' # This will throw an error if "accident_2013.csv.bz2" is not in the current working directory.
-#'   \dontrun{fars_map_state(41, 2013)}
+#' #setwd(system.file("data-raw", package = "wk4package")) to try this out
+#' #Call the function to show Oregonian accidents for 2013 on a map.
+#' #This will throw an error if "accident_2013.csv.bz2" is not in the current working directory.
+#' \dontrun{fars_map_state(41, 2013)}
 #'
-#' # Running a FIPS code for a territory like American Samoa (60) or a year
-#'   where the Republic didn't exist (e.g. 900AD) will throw an error.
-#'   \dontrun{fars_map_state(60, 900)}
+#' #Running a FIPS code for a territory like American Samoa (60) or a year
+#' # where the Republic didn't exist (e.g. 900AD) will throw an error.
+#' \dontrun{fars_map_state(60, 900)}
 #' @return NULL
 #'
 #' @references \href{https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code#FIPS_state_codes}{Wikipedia Article on FIPS codes} for a key between state.num and the region/state you want to input.

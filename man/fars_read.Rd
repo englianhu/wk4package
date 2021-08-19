@@ -19,7 +19,7 @@ fars_read() takes in a *.csv file from the NHTSA's FARS #' archives  and returns
 This function takes in a *.csv file and using the readr package will load the file as a tibble then will return it as a tbl_df (subclass of a data.frame) through dplyr. This function is ideally to be used with the FARS (Fatality Analysis Reporting System) archives for accident data in *.csv format. If no file exists an error will occur before attempting to read the file.
 }
 \examples{
-# this will stop
+#this will stop
 #returns data as tbl_df
   \dontrun{
      fars_read("this_file_does_not_exist.csv")

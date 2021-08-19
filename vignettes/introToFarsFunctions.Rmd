@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(wk4package)
+library(dplyr)
 ```
 
 # Vignette information and general usage information.
