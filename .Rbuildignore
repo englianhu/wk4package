@@ -6,3 +6,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^wk4package\.Rproj$
+^wk4package\.Rcheck$
+^wk4package.*\.tar\.gz$
+^wk4package.*\.tgz$
