@@ -1,7 +1,7 @@
 # Coursera `Build a R Package` Assignment
 
 <!-- badges: start -->
-R CMD check: [![R-CMD-check](https://github.com/englianhu/wk4package/workflows/R-CMD-check/badge.svg)](https://github.com/englianhu/wk4package/actions)
+R CMD check: [![R](https://github.com/englianhu/wk4package/actions/workflows/r.yml/badge.svg)](https://github.com/englianhu/wk4package/actions/workflows/r.yml)
 
 macOS: [![R](https://github.com/englianhu/wk4package/actions/workflows/R-macos.yml/badge.svg)](https://github.com/englianhu/wk4package/actions/workflows/R-macos.yml) Ubuntu: [![R](https://github.com/englianhu/wk4package/actions/workflows/R-ubuntu.yml/badge.svg)](https://github.com/englianhu/wk4package/actions/workflows/R-ubuntu.yml)
 
