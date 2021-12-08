@@ -1,32 +1,37 @@
-# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
-# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: R
+
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
-      - master
-
-name: R-CMD-check
+    branches: [ main ]
 
 jobs:
-  R-CMD-check:
-    runs-on: ['macOS-latest', 'ubuntu-latest']
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: 4.1.2
+
     steps:
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@v1
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
+        with:
+          r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
-        run: |
-          options(crayon.enabled = TRUE)
-          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
